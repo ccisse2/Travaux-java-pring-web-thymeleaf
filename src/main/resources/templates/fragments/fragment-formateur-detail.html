@@ -1,0 +1,28 @@
+<main xmlns="http://www.thymeleaf.org" data-th-fragment="frag-formateur-form">
+    <form data-th-action="@{/formateurs/detail}" method="post" data-th-object="${formateur}">
+        <h1>Détail du formateur</h1>
+        <ul class="flex-outer">
+            <li>
+                <label for="inputPrenom">Prénom : </label>
+                <input type="text" name="prenom" id="inputPrenom" required data-th-field="*{prenom}"/>
+            </li>
+            <li>
+                <label for="inputNom">Nom : </label>
+                <input type="text" name="nom" id="inputNom" required data-th-field="*{nom}">
+            </li>
+            <li>
+                <label for="inputEmail">Email : </label>
+                <input type="text" name="email" id="inputEmail" required data-th-field="*{email}">
+            </li>
+            <!-- Ajout liste des cours d’un formateur -->
+            <li><label>Cours : </label>
+                <ul>
+                    <li data-th-each="item : ${formateur.listeCours}" data-th-text="${item.titre}"></li>
+                </ul>
+            </li>
+            <li>
+                <button type="submit">Enregistrer</button>
+            </li>
+        </ul>
+    </form>
+</main>

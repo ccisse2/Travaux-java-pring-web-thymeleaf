@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-replace="layouts/layout :: layout-demo(
+titrePage=~{:: title},
+contenuPage=~{:: main},
+ressourcesSupp=~{:: #ressources-css}
+)">
+<head>
+    <title>Formateurs</title>
+
+    <th:block id="ressources-css"><link rel="stylesheet" data-th-href="@{/css/demo-table.css}" ></th:block>
+
+</head>
+<body>
+<main>
+   <h1>Les formateurs de l'ENI</h1>
+    <p data-th-with="premier=${formateurs[0]}" style="background-color: #008080;color: white;">
+        Premier formateur de la liste : <span data-th-text="${premier.prenom + ' '+ premier.nom}"></span>
+    </p>
+    <table class="demo-table">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-th-each="item, iter : ${formateurs}" >
+                <td data-th-text="${iter.index}"></td>
+                <td data-th-text="${item.prenom}"></td>
+                <td data-th-text="${item.nom}"></td>
+                <td>
+                    <a data-th-href="@{/formateurs/detail(email=${item.email})}">Détail</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

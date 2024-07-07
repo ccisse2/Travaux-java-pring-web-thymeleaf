@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-fragment="layout-contexte(titrePage, contenuPage)">
+<head>
+    <meta charset="UTF-8">
+    <title data-th-replace="${titrePage}">Contextes</title> <!-- Ajout de la CSS pour le layout -->
+    <link rel="stylesheet" data-th-href="@{/css/layout.css}">
+    <link rel="stylesheet" data-th-href="@{/css/general.css}">
+    <link rel="icon" data-th-href="@{/images/logoENI.png}" sizes="32x32">
+</head>
+<body> <!-- Intégration du fragment d'entête – avec le paramètre de la barre de navigation variable -->
+<div data-th-replace="~{fragments/fragment-entete :: frag-entete( ~{fragments/navigation/fragment-navigation-contexte :: frag-nav})}"></div>
+<!-- Rendre variable le contenu de la page -->
+<main data-th-replace="${contenuPage} ?: ~{}">Contenu de la page</main> <!-- Intégration du fragment de pied de page -->
+<div data-th-replace="~{fragments/fragment-piedpage :: frag-piedpage}"></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-replace="layouts/layout :: layout-demo(
+                                                            titrePage=~{:: title},
+                                                            contenuPage=~{:: main},
+                                                            ressourcesSupp=~{:: #ressources-css}
+                                                            )">
+<head>
+    <title>Détail formateur</title>
+    <th:block id="ressources-css">
+        <link rel="stylesheet" data-th-href="@{/css/demo-form.css}">
+    </th:block>
+</head>
+<body>
+<main> <!-- Placement des 2 formulaires en fragments sur cette page -->
+    <div data-th-replace="~{fragments/fragment-formateur-detail :: frag-formateur-form}"></div>
+    <div data-th-replace="~{fragments/fragment-cours-form :: frag-cours-form}"></div>
+</main>
+</body>
+</html>

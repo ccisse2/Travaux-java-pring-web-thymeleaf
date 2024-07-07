@@ -1,0 +1,17 @@
+<!-- Formulaire pour l’ajout d’un cours au formateur -->
+<form xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-cours-form" action="/formateurs/cours" method="post">
+    <h1>Ajout d'un cours</h1>
+    <ul class="flex-outer">
+        <li><input type="hidden" name="email" id="inputEmail" required data-th-value="${formateur.email}"/></li>
+        <li>
+            <label for="selectCours">Cours : </label>
+            <select name="idCours" id="selectCours">
+            <option data-th-each="item : ${coursSession}" data-th-text="${item.id} + ' ' + ${item.titre}"
+                    data-th-value="${item.id}"></option>
+            </select>
+        </li>
+        <li>
+            <button type="submit">Enregistrer</button>
+        </li>
+    </ul>
+</form>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-fragment="layout-demo(titrePage, contenuPage, ressourcesSupp)">
+<head>
+    <meta charset="UTF-8">
+    <title data-th-replace="${titrePage}">Demo Spring Web</title>
+    <!--ajout de la css pour le layout-->
+    <link rel="stylesheet" data-th-href="@{/css/general.css}">
+    <link rel="stylesheet" data-th-href="@{/css/layout.css}">
+
+    <!--permettre d'ajouter ou non des ressources css-->
+    <th:block data-th-replace="${ressourcesSupp}"></th:block>
+
+    <link rel="icon" data-th-href="@{/images/logoENI.png}" sizes="32x32">
+</head>
+<body> <!-- Intégration du fragment d'entête -->
+<!-- Intégration du fragment d'entête – avec le paramètre de la barre de navigation variable -->
+<div data-th-replace="~{fragments/fragment-entete :: frag-entete( ~{fragments/navigation/fragment-navigation :: frag-nav})}"></div>
+<main data-th-replace="${contenuPage}">
+</main>
+<div data-th-replace="~{fragments/fragment-piedpage :: frag-piedpage}"></div>
+</body>
+</html>

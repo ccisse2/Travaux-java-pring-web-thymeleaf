@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      data-th-replace="~{layouts/layout-contexte :: layout-contexte( titrePage=~{:: title}, contenuPage=~{:: main})}">
+<head>
+    <!-- UtilisateurController comme titre de page -->
+    <title>UtilisateurController</title>
+</head>
+<body>
+<main><h1>Autre Contrôleur :</h1>
+    <h2 data-th-text="'Attribut en Session : ' + ${utilisateurSession}"></h2></main>
+</body>
+</html>
