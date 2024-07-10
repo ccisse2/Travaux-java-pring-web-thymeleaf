@@ -1,0 +1,8 @@
+<li xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-liste-cours">
+    <label for="selectCours">Cours : </label>
+    <select id="selectCours" data-th-field="*{listeCours}" required multiple="multiple">
+        <option data-th-each="cours : ${coursSession}" data-th-text="${cours.id} + ' ' + ${cours.titre}"
+                data-th-value="${cours.id}">
+        </option>
+    </select>
+</li>

@@ -26,6 +26,17 @@ public class FormateurServiceImpl implements FormateurService {
 	}
 
 	@Override
+	public void add(Formateur formateur) {
+		//Unicité de l'email
+		Formateur formateurAvecEmailIdentique = formateurDAO.read(formateur.getEmail());
+		if (formateurAvecEmailIdentique == null) {
+            formateurDAO.create(formateur);
+        } else {
+            System.out.println("Email déjà utilisé");
+        }
+	}
+
+	@Override
 	public List<Formateur> getFormateurs() {
 		return formateurDAO.findAll();
 	}

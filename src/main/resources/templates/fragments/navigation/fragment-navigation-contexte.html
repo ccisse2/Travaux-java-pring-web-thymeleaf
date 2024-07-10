@@ -1,8 +1,8 @@
 <nav xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-nav">
     <ul>
-        <li><a href="/contexte/SessionEtRequest?pseudo=Julien">Pseudo_Julien</a></li>
-        <li><a href="/contexte/SessionEtRequest/recuperer">Récupérer_Attributs</a></li>
-        <li><a href="/contexte/utilisateur">Autre_Contrôleur</a></li>
-        <li><a href="/contexte/SessionEtRequest/invalidate">Fin_Session</a></li>
+        <li><a href="/contexte/SessionEtRequest?pseudo=Julien" data-th-text="#{frag-nav.a.contexte.julien}"></a></li>
+        <li><a href="/contexte/SessionEtRequest/recuperer" data-th-text="#{frag-nav.a.contexte.recuperer}"></a></li>
+        <li><a href="/contexte/utilisateur" data-th-text="#{frag-nav.a.contexte.utilisateur}"></a></li>
+        <li><a href="/contexte/SessionEtRequest/invalidate" data-th-text="#{frag-nav.a.contexte.invalidate}"></a></li>
     </ul>
 </nav>

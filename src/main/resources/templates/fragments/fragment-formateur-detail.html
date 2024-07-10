@@ -1,28 +1,35 @@
-<main xmlns="http://www.thymeleaf.org" data-th-fragment="frag-formateur-form">
-    <form data-th-action="@{/formateurs/detail}" method="post" data-th-object="${formateur}">
-        <h1>Détail du formateur</h1>
-        <ul class="flex-outer">
-            <li>
-                <label for="inputPrenom">Prénom : </label>
-                <input type="text" name="prenom" id="inputPrenom" required data-th-field="*{prenom}"/>
-            </li>
-            <li>
-                <label for="inputNom">Nom : </label>
-                <input type="text" name="nom" id="inputNom" required data-th-field="*{nom}">
-            </li>
-            <li>
-                <label for="inputEmail">Email : </label>
-                <input type="text" name="email" id="inputEmail" required data-th-field="*{email}">
-            </li>
-            <!-- Ajout liste des cours d’un formateur -->
-            <li><label>Cours : </label>
-                <ul>
-                    <li data-th-each="item : ${formateur.listeCours}" data-th-text="${item.titre}"></li>
-                </ul>
-            </li>
-            <li>
-                <button type="submit">Enregistrer</button>
-            </li>
-        </ul>
-    </form>
-</main>
+<form xmlns:th="http://www.thymeleaf.org"
+      data-th-fragment="frag-formateur-form(action, titreForm, fragListeDesCours)"
+      data-th-action="@{${action}}"
+      data-th-object="${formateur}"
+      method="post" >
+    <h1 data-th-text="${titreForm}"></h1>
+    <div data-th-replace="~{fragments/errors/fragment-errors :: frag-errors}"></div>
+    <ul class="flex-outer">
+        <li>
+            <label for="inputPrenom">Prénom : </label>
+            <input type="text" name="prenom" id="inputPrenom" required data-th-field="*{prenom}"/>
+            <div data-th-replace="~{fragments/errors/fragment-error :: frag-error('prenom')}"></div>
+        </li>
+        <li>
+            <label for="inputNom">Nom : </label>
+            <input type="text" name="nom" id="inputNom" required data-th-field="*{nom}">
+            <div data-th-replace="~{fragments/errors/fragment-error :: frag-error('nom')}"></div>
+        </li>
+        <li>
+            <label for="inputEmail">Email : </label>
+            <input type="text" name="email" id="inputEmail" required data-th-field="*{email}"
+                   data-th-readonly="${#strings.contains(action, 'detail')}">
+            <th:block data-th-if="${#strings.contains(action, 'creer')}">
+                <div data-th-replace="~{fragments/errors/fragment-error :: frag-error('email')}"></div>
+            </th:block>
+
+        </li>
+        <!-- Ajout liste des cours d’un formateur -->
+        <li data-th-replace="${fragListeDesCours}">
+        </li>
+        <li>
+            <button type="submit">Enregistrer</button>
+        </li>
+    </ul>
+</form>

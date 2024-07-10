@@ -1,7 +1,12 @@
 <header xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-entete(navigation)">
-    <h1 id="nav-title">
-        <a href="/">Démonstrations Spring Web</a>
-    </h1>
-    <!-- Intégration du fragment de navigation -->
+    <section id="nav-title">
+        <h1>
+            <a href="/" data-th-text="#{frag-entete.h1}"></a>
+        </h1>
+        <div>
+            <a href="/?language=fr"><img alt="Français" src="/images/French.webp"></a>
+            <a href="/?language=en"><img alt="English" src="/images/English.webp"></a>
+        </div>
+    </section> <!-- Intégration du fragment de navigation -->
     <nav data-th-replace="${navigation}"></nav>
 </header>

@@ -1,13 +1,27 @@
 package fr.eni.demo.bo;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Formateur implements Serializable {
+    @NotBlank
+    @Size(min = 4, max = 250, message = "Le nom doit contenir entre 4 et 250 caractères")
     private String nom;
+
+    @NotBlank
+    @Size(min = 4, max = 250, message = "Le prénom doit contenir entre 4 et 250 caractères")
     private String prenom;
+
+    @NotBlank
+    @Email
+    @Pattern(regexp = "^[\\w-\\.]+@campus-eni.fr$")
     private String email;
 
     private List<Cours> listeCours = new ArrayList<Cours>();

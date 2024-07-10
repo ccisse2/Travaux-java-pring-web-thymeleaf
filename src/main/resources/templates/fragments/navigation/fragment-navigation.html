@@ -1,7 +1,7 @@
 <nav xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-nav">
     <ul>
-        <li><a href="/formateurs">Formateurs</a></li>
-        <li><a href="/formateurs/creer">Création</a></li>
-        <li><a href="/contexte/SessionEtRequest">Démo-Contextes</a></li>
+        <li><a href="/formateurs" data-th-text="#{frag-nav.a.formateurs}"></a></li>
+        <li><a href="/formateurs/creer"  data-th-text="#{frag-nav.a.creation}"></a></li>
+        <li><a href="/contexte/SessionEtRequest" data-th-text="#{frag-nav.a.contexte}"></a></li>
     </ul>
 </nav>

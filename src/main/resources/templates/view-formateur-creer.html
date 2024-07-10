@@ -5,18 +5,17 @@
                                                             ressourcesSupp=~{:: #ressources-css}
                                                             )}">
 <head>
-    <title>Détail formateur</title>
+    <title>Créer</title>
     <th:block id="ressources-css">
         <link rel="stylesheet" data-th-href="@{/css/demo-form.css}">
-        <link rel="stylesheet" data-th-href="@{/css/demo-erros.css}">
+        <link rel="stylesheet" data-th-href="@{/css/demo-error.css}">
     </th:block>
 </head>
 <body>
 <main> <!-- Placement des 2 formulaires en fragments sur cette page -->
     <div data-th-replace="~{fragments/fragment-formateur-detail ::
-    frag-formateur-form('/formateurs/detail', 'détail du formateur',
-    ~{fragments/fragment-liste-cours-lecture :: frag-liste-cours})}"></div>
-    <div data-th-replace="~{fragments/fragment-cours-form :: frag-cours-form}"></div>
+    frag-formateur-form('/formateurs/creer', 'Création du formateur',
+    ~{fragments/fragment-liste-cours-form :: frag-liste-cours})}"></div>
 </main>
 </body>
 </html>
